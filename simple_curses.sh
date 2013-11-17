@@ -133,18 +133,10 @@ window(){
     tput cuf $left
     #set title color
     case $color in
-        green)
-            echo -n -e "\E[01;32m"
-            ;;
-        red)
-            echo -n -e "\E[01;31m"
-            ;;
-        blue)
-            echo -n -e "\E[01;34m"
-            ;;
-        grey|*)
-            echo -n -e "\E[01;37m"
-            ;;
+        green) green ;;
+        red) red ;;
+        blue) blue ;;
+        grey|*) grey ;;
     esac
     
     
@@ -178,7 +170,18 @@ clean_line(){
     tput rc
     
 }
-
+green() {
+   echo -n -e "\E[01;32m"
+}
+red() {
+   echo -n -e "\E[01;31m"
+}
+blue() {
+   echo -n -e "\E[01;34m"
+}
+grey() {
+   echo -n -e "\E[01;37m"
+}
 
 #add text on current window
 append_file(){
